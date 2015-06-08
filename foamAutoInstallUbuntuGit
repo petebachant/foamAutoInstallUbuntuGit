@@ -47,3 +47,10 @@ cp -r $FOAM_TUTORIALS $FOAM_RUN
 
 # Append to bashrc
 echo source $HOME/OpenFOAM/OpenFOAM-2.4.x/etc/bashrc >> ~/.bashrc
+
+echo export ParaView_DIR=/home/pete/OpenFOAM/ThirdParty-2.4.x/platforms/linux64Gcc/ParaView-4.1.0 >> ~/.bashrc
+
+echo export PATH=$ParaView_DIR/bin:$PATH >> ~/.bashrc
+
+echo export PV_PLUGIN_PATH=$FOAM_LIBBIN/paraview-4.1 >> ~/.bashrc
+
