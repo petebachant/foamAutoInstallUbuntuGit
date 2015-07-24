@@ -54,3 +54,8 @@ echo export PATH=$ParaView_DIR/bin:$PATH >> ~/.bashrc
 
 echo export PV_PLUGIN_PATH=$FOAM_LIBBIN/paraview-4.1 >> ~/.bashrc
 
+source ~/.bashrc
+cd $FOAM_UTILITIES/postProcessing/graphics/PV4Readers
+./Allwclean
+./Allwmake
+
