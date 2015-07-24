@@ -19,7 +19,7 @@ wget http://downloads.sourceforge.net/foam/ThirdParty-2.4.0.tgz
 # Extract 3rd party libs
 tar -xzvf ThirdParty-2.4.0.tgz
 mv ThirdParty-2.4.0 ThirdParty-2.4.x
-rm ThirdParty-2.4.0.gz
+rm ThirdParty-2.4.0.tgz
 
 # Obtain some software
 sudo apt-get install build-essential flex bison cmake zlib1g-dev libopenmpi-dev openmpi-bin gnuplot libreadline-dev libncurses-dev libxt-dev 
