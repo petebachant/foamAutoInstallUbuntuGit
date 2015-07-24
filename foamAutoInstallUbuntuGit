@@ -11,15 +11,15 @@ mkdir -p ~/OpenFOAM
 cd ~/OpenFOAM
 
 # Clone OpenFOAM
-git clone git://github.com/OpenFOAM/OpenFOAM-2.4.x.git
+git clone git://github.com/OpenFOAM/OpenFOAM-2.3.x.git
 
 # Obtain 3rd party libs
-wget http://downloads.sourceforge.net/foam/ThirdParty-2.4.0.tgz
+wget http://downloads.sourceforge.net/foam/ThirdParty-2.3.0.tgz
 
 # Extract 3rd party libs
-tar -xzvf ThirdParty-2.4.0.tgz
-mv ThirdParty-2.4.0 ThirdParty-2.4.x
-rm ThirdParty-2.4.0.gz
+tar -xzvf ThirdParty-2.3.0.tgz
+mv ThirdParty-2.3.0 ThirdParty-2.3.x
+rm ThirdParty-2.3.0.tgz
 
 # Obtain some software
 sudo apt-get install build-essential flex bison cmake zlib1g-dev libopenmpi-dev openmpi-bin gnuplot libreadline-dev libncurses-dev libxt-dev 
@@ -29,7 +29,7 @@ sudo apt-get install qt4-dev-tools libqt4-dev libqt4-opengl-dev freeglut3-dev li
 sudo apt-get install libscotch-dev libcgal-dev
 
 # Source environmental variables
-source $HOME/OpenFOAM/OpenFOAM-2.4.x/etc/bashrc
+source $HOME/OpenFOAM/OpenFOAM-2.3.x/etc/bashrc
 
 # Make OpenFOAM
 cd $WM_PROJECT_DIR
@@ -46,9 +46,9 @@ mkdir -p $FOAM_RUN
 cp -r $FOAM_TUTORIALS $FOAM_RUN
 
 # Append to bashrc
-echo source $HOME/OpenFOAM/OpenFOAM-2.4.x/etc/bashrc >> ~/.bashrc
+echo source $HOME/OpenFOAM/OpenFOAM-2.3.x/etc/bashrc >> ~/.bashrc
 
-echo export ParaView_DIR=/home/pete/OpenFOAM/ThirdParty-2.4.x/platforms/linux64Gcc/ParaView-4.1.0 >> ~/.bashrc
+echo export ParaView_DIR=/home/pete/OpenFOAM/ThirdParty-2.3.x/platforms/linux64Gcc/ParaView-4.1.0 >> ~/.bashrc
 
 echo export PATH=$ParaView_DIR/bin:$PATH >> ~/.bashrc
 
