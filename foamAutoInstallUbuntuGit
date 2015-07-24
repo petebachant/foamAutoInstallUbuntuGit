@@ -59,3 +59,6 @@ cd $FOAM_UTILITIES/postProcessing/graphics/PV4Readers
 ./Allwclean
 ./Allwmake
 
+# Go to cavity tutorial to test
+cd $FOAM_RUN/tutorials/incompressible/icoFoam/cavity
+
