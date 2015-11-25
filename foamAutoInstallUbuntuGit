@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+VERSION="3.0.x"
+THIRD_PARTY_VERSION="${VERSION/.x/.0}"
+
 # Install git if necessary
 sudo apt-get install git
 
@@ -11,25 +14,25 @@ mkdir -p ~/OpenFOAM
 cd ~/OpenFOAM
 
 # Clone OpenFOAM
-git clone git://github.com/OpenFOAM/OpenFOAM-2.4.x.git
+git clone git://github.com/OpenFOAM/OpenFOAM-$VERSION.git
 
 # Obtain 3rd party libs
-wget http://downloads.sourceforge.net/foam/ThirdParty-2.4.0.tgz
+wget http://downloads.sourceforge.net/foam/ThirdParty-$THIRD_PARTY_VERSION.tgz
 
 # Extract 3rd party libs
-tar -xzvf ThirdParty-2.4.0.tgz
-mv ThirdParty-2.4.0 ThirdParty-2.4.x
-rm ThirdParty-2.4.0.tgz
+tar -xzvf ThirdParty-$THIRD_PARTY_VERSION.tgz
+mv ThirdParty-$THIRD_PARTY_VERSION ThirdParty-$VERSION
+rm ThirdParty-$THIRD_PARTY_VERSION.tgz
 
 # Obtain some software
-sudo apt-get install build-essential flex bison cmake zlib1g-dev libopenmpi-dev openmpi-bin gnuplot libreadline-dev libncurses-dev libxt-dev 
+sudo apt-get install build-essential flex bison cmake zlib1g-dev libopenmpi-dev openmpi-bin gnuplot libreadline-dev libncurses-dev libxt-dev
 
-sudo apt-get install qt4-dev-tools libqt4-dev libqt4-opengl-dev freeglut3-dev libqtwebkit-dev 
+sudo apt-get install qt4-dev-tools libqt4-dev libqt4-opengl-dev freeglut3-dev libqtwebkit-dev
 
 sudo apt-get install libscotch-dev libcgal-dev
 
 # Source environmental variables
-source $HOME/OpenFOAM/OpenFOAM-2.4.x/etc/bashrc
+source $HOME/OpenFOAM/OpenFOAM-$VERSION/etc/bashrc
 
 # Make OpenFOAM
 cd $WM_PROJECT_DIR
@@ -40,15 +43,15 @@ cd $WM_THIRD_PARTY_DIR
 ./makeParaView4
 
 # Create a Foam Run directory
-mkdir -p $FOAM_RUN 
+mkdir -p $FOAM_RUN
 
 # Copy tutorials
 cp -r $FOAM_TUTORIALS $FOAM_RUN
 
 # Append to bashrc
-echo source $HOME/OpenFOAM/OpenFOAM-2.4.x/etc/bashrc >> ~/.bashrc
+echo source $HOME/OpenFOAM/OpenFOAM-$VERSION/etc/bashrc >> ~/.bashrc
 
-echo export ParaView_DIR=/home/pete/OpenFOAM/ThirdParty-2.4.x/platforms/linux64Gcc/ParaView-4.1.0 >> ~/.bashrc
+echo export ParaView_DIR=/home/pete/OpenFOAM/ThirdParty-$VERSION/platforms/linux64Gcc/ParaView-4.1.0 >> ~/.bashrc
 
 echo export PATH=$ParaView_DIR/bin:$PATH >> ~/.bashrc
 
@@ -61,4 +64,3 @@ cd $FOAM_UTILITIES/postProcessing/graphics/PV4Readers
 
 # Go to cavity tutorial to test
 cd $FOAM_RUN/tutorials/incompressible/icoFoam/cavity
-
